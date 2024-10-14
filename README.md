@@ -21,4 +21,6 @@
 ├── pages              - объекты страниц
 ├── README.md          - ридми
 ├── requirements.txt   - зависимости
-└── tests              - тесты
+├── tests              - тесты
+└── conftest.py        - фикстуры
+

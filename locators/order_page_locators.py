@@ -34,7 +34,16 @@ class OrderPageLocators:
         'order_form' : ORDER_PAGE__FORM,
         'subway_list' : ORDER_PAGE__SUBWAY_ELEMENT,
         'second_header' : ORDER_PAGE__HEADER
-    }    
+    }  
+
+    @classmethod  
+    def get_modified_locator(cls, type, value):
+        if type == 'subway':
+            return (By.XPATH, f'//div[@class="select-search__select"]//div[contains(text(), "{value}")]')
+        elif type == 'rent_time':
+            return (By.XPATH, f'//div[@class="Dropdown-menu"]/div[@class="Dropdown-option"][text()="{value}"]')
+        elif type == 'color_num':
+            return (By.XPATH, f'//label[contains(@class, "Checkbox_Label")][{value}]//input[@type="checkbox"]')
 
     # вторая форма
     # поле ввода даты

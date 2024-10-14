@@ -12,7 +12,7 @@ from random import random
 class OrderPage(BasePage):
 
     def __init__(self, driver):
-        super().__init__(driver)
+        super().__init__(driver, 3)
         # элементы первой формы страницы Заказа
         self.order__first_form__all_elements = OrderPageLocators.ORDER_PAGE__FIRST_FORM__ALL_ELEMENTS
         # элементы второй формы страницы Заказа
@@ -35,12 +35,11 @@ class OrderPage(BasePage):
         self.set_text_of(self.order__first_form__all_elements['address_input'], address)
 
     def fill_in_subway_input(self, subway):
-        subway_element_locator = (By.XPATH, f'//div[@class="select-search__select"]//div[contains(text(), "{subway}")]')
+        subway_element_locator = OrderPageLocators.get_modified_locator('subway', subway)
         self.click(self.order__first_form__all_elements['subway_input'])
         self.set_text_of(self.order__first_form__all_elements['subway_input'], subway)
         self.wait(subway_element_locator)
         self.click(subway_element_locator)
-
 
     def fill_in_phone_input(self, phone):
         self.set_text_of(self.order__first_form__all_elements['phone_input'], phone)
@@ -64,11 +63,12 @@ class OrderPage(BasePage):
 
     def fill_in_rent_time_input(self, rent_time):
         self.click(self.order__second_form__all_elements['rent_time_field'])
-        self.click((By.XPATH, f'//div[@class="Dropdown-menu"]/div[@class="Dropdown-option"][text()="{rent_time}"]'))
+        rent_rime_locator = OrderPageLocators.get_modified_locator('rent_time', rent_time)
+        self.click(rent_rime_locator)
 
     def fill_in_color_checkbox(self, color_nums):
         for color_num in color_nums:
-            self.click((By.XPATH, f'//label[contains(@class, "Checkbox_Label")][{color_num}]//input[@type="checkbox"]'))
+            self.click(OrderPageLocators.get_modified_locator('color_num',color_num))
 
     def fill_in_comment(self, comment):
         self.set_text_of(self.order__second_form__all_elements['comment_input'], comment)

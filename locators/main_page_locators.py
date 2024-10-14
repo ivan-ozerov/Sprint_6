@@ -12,7 +12,7 @@ class MainPageLocators:
     # кнопка компонента FAQ конетйнера
     MAIN_PAGE__FAQ_BUTTON = (By.XPATH, '//div[contains(class, Home_FAQ)]//div[@class="accordion__button"]')
     # содержание компонента FAQ конетйнера
-    MAIN_PAGE__FAQ_PANEL = (By.XPATH, '//div[contains(class, Home_FAQ)]//div[@class="accordion__panel"]')
+    MAIN_PAGE__FAQ_PANEL = (By.XPATH, '//div[contains(class, Home_FAQ)]//div[@class="accordion__panel"]/p')
     # кнопка "Заказать" в хэдере
     MAIN_PAGE__ORDER_BUTTON__IN_HEADER = (By.XPATH, '//div[starts-with(@class, "Header")]//button[text()="Заказать"]')
     # кнопка "Заказать" внизу страницы

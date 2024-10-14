@@ -14,7 +14,7 @@ from pages.base_page import BasePage
 class TrackPage(BasePage):
 
     def __init__(self, driver, track_number=None):
-        super().__init__(driver)
+        super().__init__(driver, 3)
         self.track_page_info_block = TrackPageLocators.TRACK_PAGE__ORDER_INFO_BLOCK
         self.track_page_elements__all_elements = TrackPageLocators.TRACK_PAGE__ALL_ELEMENTS
         self.track_number = track_number

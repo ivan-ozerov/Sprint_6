@@ -10,7 +10,7 @@ from random import random
 class MainPage(BasePage):
  
     def __init__(self, driver):
-        super().__init__(driver)
+        super().__init__(driver, 3)
         self.FAQ_block = MainPageLocators.MAIN_PAGE__FAQ_CONTAINER
         self.FAQ_item = MainPageLocators.MAIN_PAGE__FAQ_ITEM
         self.FAQ_last_item = MainPageLocators.MAIN_PAGE__FAQ_LAST_ITEM
@@ -36,7 +36,7 @@ class MainPage(BasePage):
         return self.find(self.FAQ_last_item)
 
     def get_FAQ_button(self, item_number):
-        return (self.find_multiple(self.FAQ_button))[item_number]
+        return self.find_multiple(self.FAQ_button)[item_number]
 
     def get_FAQ_panel(self, item_number):
         return self.find_multiple(self.FAQ_panel)[item_number]
