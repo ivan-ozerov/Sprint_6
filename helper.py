@@ -5,6 +5,7 @@ from selenium import webdriver
 
 MAIN_PAGE_URL = 'https://qa-scooter.praktikum-services.ru/'
 ORDER_PAGE_URL = MAIN_PAGE_URL + 'order'
+TRACK_PAGE_URL = MAIN_PAGE_URL + 'track'
 
 # тестовые данные
 COLORS = {
@@ -82,3 +83,5 @@ def convert_color_nums_to_colors(color_nums):
     else:
         return ', '.join([COLORS[color_num] for color_num in color_nums])
     
+def link_to_track_page_with_track_number(order_number):
+    return TRACK_PAGE_URL + f'?t={order_number}'

@@ -44,8 +44,8 @@ class TestOrderPage:
     def test_watch_order_status_window_open(self, user_data, open_main_page):
         main_page = MainPage(self.driver)
         order_page = OrderPage(main_page.go_to_order_page_from_header())
-        driver_and_ord_number = order_page.full_flow_from_order_page_to_track_page(user_data)
-        assert order_page.driver.current_url == f'https://qa-scooter.praktikum-services.ru/track?t={driver_and_ord_number[1]}'
+        order_number = order_page.full_flow_from_order_page_to_track_page(user_data)[1]
+        assert order_page.driver.current_url == helper.link_to_track_page_with_track_number(order_number)
 
     @classmethod
     def teardown_class(cls):
